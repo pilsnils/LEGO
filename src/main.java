@@ -1,5 +1,13 @@
 
  
+
+import java.util.LinkedList;
+
+import org.w3c.dom.css.RGBColor;
+
+import guiObjects.legoObject;
+import guiObjects.meshHexagon;
+
 import com.jme3.app.SimpleApplication;
 import com.jme3.font.BitmapText;
 import com.jme3.input.*;
@@ -12,40 +20,78 @@ import com.jme3.scene.Node;
 import com.jme3.scene.shape.Box;
 import com.jme3.math.ColorRGBA;
 import com.jogamp.opengl.util.texture.Texture;
-import com.jme3.input.controls.ActionListener;
+import com.jme3.input.controls.*;
  
 /** Sample 1 - how to get started with the most simple JME 3 application.
  * Display a blue 3D cube and view from all sides by
  * moving the mouse and pressing the WASD keys. */
+
+
 public class main extends SimpleApplication {
- 
+	
+	private LinkedList<legoObject> objects;
+//	private legoObject[] objects;
+	
+	
     public static void main(String[] args){
         main app = new main();
         app.start(); // start the game
+        
     }
- 
+     
     
-    
-    
-    @Override
     public void simpleInitApp() {
     	
+    	this.objects=new LinkedList<legoObject>();
     	
-        Box b = new Box(Vector3f.ZERO, 1, 1, 1); // create cube shape at the origin
-        Geometry geom = new Geometry("Box", b);  // create cube geometry from the shape
-        Material mat_tl = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
-        mat_tl.setTexture("ColorMap", assetManager.loadTexture("Textures/Terrain/Pond/Pond_normal.png"));
-        mat_tl.setColor("Color", new ColorRGBA(1f,0f,1f, 1f)); // purple
-        geom.setMaterial(mat_tl);
-             
-        Node pivot = new Node("pivot");
-        rootNode.attachChild(pivot); // put this node in the scene
- 
-        /** Attach the two boxes to the *pivot* node. */
-        pivot.attachChild(geom);
+    	addObject(new float[]{0,0,0});
+   
+        initKeys(); 
+    }
+
+    
+    /**
+     * 
+     */
+    private void initKeys() {
+        // You can map one or several inputs to one named action
+    	inputManager.addMapping("Rotate", new KeyTrigger(KeyInput.KEY_SPACE));
+        inputManager.addMapping("Switch", new MouseButtonTrigger(MouseInput.BUTTON_LEFT));
+        // Add the names to the action listener.
+        inputManager.addListener(analogListener, new String[]{"Switch", "Rotate"});
         
-        /** Rotate the pivot node: Note that both boxes have rotated! */
-        pivot.rotate(.4f,.0f,0f);
+      }
+   
+    /**
+     * 
+     * @param position
+     */
+    private void addObject(float[] position){
+    	int id=this.objects.size();
+    	this.objects.add(new legoObject(id, new meshHexagon(), assetManager));
+    	rootNode.attachChild(this.objects.get(id).getGeometry());
     }
     
+    
+    
+    private AnalogListener analogListener = new AnalogListener() {
+        public void onAnalog(String name, float value, float tpf) {
+     
+            if (name.equals("Switch")) {
+            	 
+            	 addObject(new float[]{0,2,4});
+            	 
+            	 objects.get(0).setColor(ColorRGBA.Green);
+            }
+            if (name.equals("Rotate")) {
+            	
+            	 objects.get(0).getGeometry().rotate(value*speed,0, 0);
+            	
+            }
+        }
+      };
+    
+    
 }
+
+	
