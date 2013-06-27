@@ -81,7 +81,7 @@ public class main extends SimpleApplication {
             	 
             	 addObject(new float[]{0,2,4});
             	 
-            	 objects.get(0).setColor(ColorRGBA.Yellow);
+            	 objects.get(0).setColor(ColorRGBA.Red);
             }
             if (name.equals("Rotate")) {
             	
