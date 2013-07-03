@@ -36,30 +36,21 @@ public class meshHexagon extends Mesh{
         
 
         // Texture coordinates
-        Vector2f [] texCoord = new Vector2f[12];
-//        for(int i=0;i<12;i++)
-//        	 texCoord[i] = new Vector2f(0,0);
-        texCoord[0] = new Vector2f(0,1);
-        texCoord[1] = new Vector2f(0,1);
-        texCoord[2] = new Vector2f(0,1);
-        texCoord[3] = new Vector2f(0,1);
-        texCoord[4] = new Vector2f(0,1);
-        texCoord[5] = new Vector2f(0,1);
-        
-        texCoord[6] = new Vector2f(0,-1);
-        texCoord[7] = new Vector2f(0,-1);
-        texCoord[8] = new Vector2f(0,-1);
-        texCoord[9] = new Vector2f(0,-1);
-        texCoord[10] = new Vector2f(0,-1);
-        texCoord[11] = new Vector2f(0,-1);
-        
+        Vector3f [] texCoord = new Vector3f[12];
+        for(int i=0;i<12;i++)
+        	 texCoord[i] = new Vector3f(1,1,1);
+        	
+        	
         // Indexes. We define the order in which mesh should be constructed
-        int [] indexes = {0,4,5, 0,3,4, 0,1,3, 1,2,3, 6,10,11, 6,9,10, 6,7,9, 7,8,9, 0,7,6, 0,1,7, 1,8,7, 1,2,8, 2,9,8, 2,3,9, 3,10,9, 3,4,10, 4,11,10, 4,5,11, 5,6,11, 5,0,6 };
+        int [] indexes = {5,4,0, 4,3,0, 3,1,0, 3,2,1, 6,10,11, 6,9,10, 6,7,9, 7,8,9, 0,7,6, 0,1,7, 1,8,7, 1,2,8, 2,9,8, 2,3,9, 3,10,9, 3,4,10, 4,11,10, 4,5,11, 5,6,11, 5,0,6 };
 	
+     
+        
 	
 	this.setBuffer(Type.Position, 3, BufferUtils.createFloatBuffer(vertices));
-	this.setBuffer(Type.TexCoord, 2, BufferUtils.createFloatBuffer(texCoord));
+	this.setBuffer(Type.TexCoord, 3, BufferUtils.createFloatBuffer(texCoord));
 	this.setBuffer(Type.Index,    3, BufferUtils.createIntBuffer(indexes));
+	
 	this.updateBound();
 	}
 }

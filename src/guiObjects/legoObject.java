@@ -25,6 +25,7 @@ public class legoObject {
 		this.mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
 		this.mat.setColor("Color", ColorRGBA.Blue);
 		this.mat.setTexture("ColorMap", assetManager.loadTexture("Textures/Terrain/Pond/Pond_normal.png"));
+		
 		this.geom.setMaterial(mat);
 		}
 	/**
