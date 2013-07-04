@@ -121,6 +121,7 @@ public class ChaseCamera implements ActionListener, AnalogListener, Control {
     public ChaseCamera(Camera cam, final Spatial target) {
         this(cam);
         target.addControl(this);
+        
     }
 
     /**

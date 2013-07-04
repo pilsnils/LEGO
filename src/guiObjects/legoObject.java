@@ -21,7 +21,7 @@ public class legoObject {
 	 */
 	public legoObject(int ID, Mesh mesh, AssetManager assetManager){
 		this.ID=ID;
-		this.geom = new Geometry("LEGO", mesh);
+		this.geom = new Geometry("LEGO_" + ID, mesh);
 		this.mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
 		this.mat.setColor("Color", ColorRGBA.Blue);
 		this.mat.setTexture("ColorMap", assetManager.loadTexture("Textures/Terrain/Pond/Pond_normal.png"));
