@@ -15,24 +15,24 @@ public class meshHexagon extends Mesh{
 	
 		super();
 		
-		float innerRadius=1; //length of the inner radius, half of the distance of two oppposite edges
-		float edge = (float) (2/Math.sqrt(3)) *innerRadius; //length of an edge of the hexagon, equal to the outer radius 
+		float innerRadius=1; //length of the inner radius, half of the distance of two opposite edges
+		float outerRadius = (float) (2/Math.sqrt(3)) *innerRadius; //length of an outerRadius of the hexagon, equal to the outer radius 
 		
 		// Vertex positions in space
         Vector3f [] vertices = new Vector3f[12];
-        vertices[0] = new Vector3f(-edge/2,-edge,0);
-        vertices[1] = new Vector3f(edge/2,-edge,0);
-        vertices[2] = new Vector3f(edge,0,0);
-        vertices[3] = new Vector3f(edge/2,edge,0);
-        vertices[4] = new Vector3f(-edge/2,edge,0);
-        vertices[5] = new Vector3f(-edge,0,0);
+        vertices[0] = new Vector3f(-innerRadius/2,-innerRadius,-1);
+        vertices[1] = new Vector3f(innerRadius/2,-innerRadius,-1);
+        vertices[2] = new Vector3f(outerRadius,0,-1);
+        vertices[3] = new Vector3f(innerRadius/2,innerRadius,-1);
+        vertices[4] = new Vector3f(-innerRadius/2,innerRadius,-1);
+        vertices[5] = new Vector3f(-outerRadius,0,-1);
         
-        vertices[6] = new Vector3f(-edge/2,-edge,2);
-        vertices[7] = new Vector3f(edge/2,-edge,2);
-        vertices[8] = new Vector3f(edge,0,2);
-        vertices[9] = new Vector3f(edge/2,edge,2);
-        vertices[10] = new Vector3f(-edge/2,edge,2);
-        vertices[11] = new Vector3f(-edge,0,2);
+        vertices[6] = new Vector3f(-innerRadius/2,-innerRadius,1);
+        vertices[7] = new Vector3f(innerRadius/2,-innerRadius,1);
+        vertices[8] = new Vector3f(outerRadius,0,1);
+        vertices[9] = new Vector3f(innerRadius/2,innerRadius,1);
+        vertices[10] = new Vector3f(-innerRadius/2,innerRadius,1);
+        vertices[11] = new Vector3f(-outerRadius,0,1);
         
 
         // Texture coordinates
