@@ -174,7 +174,7 @@ public class TerrainTestReadWrite extends SimpleApplication {
      */
     private void createControls() {
         flyCam.setMoveSpeed(50);
-        cam.setLocation(new Vector3f(0, 100, 0));
+        getCam().setLocation(new Vector3f(0, 100, 0));
 
         inputManager.addMapping("save", new KeyTrigger(KeyInput.KEY_T));
         inputManager.addListener(saveActionListener, "save");

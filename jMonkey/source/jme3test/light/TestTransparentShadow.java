@@ -60,8 +60,8 @@ public class TestTransparentShadow extends SimpleApplication {
 
     public void simpleInitApp() {
 
-        cam.setLocation(new Vector3f(5.700248f, 6.161693f, 5.1404157f));
-        cam.setRotation(new Quaternion(-0.09441641f, 0.8993388f, -0.24089815f, -0.35248178f));
+        getCam().setLocation(new Vector3f(5.700248f, 6.161693f, 5.1404157f));
+        getCam().setRotation(new Quaternion(-0.09441641f, 0.8993388f, -0.24089815f, -0.35248178f));
 
         viewPort.setBackgroundColor(ColorRGBA.DarkGray);
 

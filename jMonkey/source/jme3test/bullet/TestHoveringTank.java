@@ -157,7 +157,7 @@ public class TestHoveringTank extends SimpleApplication implements AnalogListene
         rootNode.attachChild(spaceCraft);
         getPhysicsSpace().add(hoverControl);
 
-        ChaseCamera chaseCam = new ChaseCamera(cam, inputManager);
+        ChaseCamera chaseCam = new ChaseCamera(getCam(), inputManager);
         spaceCraft.addControl(chaseCam);
 
         flyCam.setEnabled(false);
@@ -237,12 +237,12 @@ public class TestHoveringTank extends SimpleApplication implements AnalogListene
         // add Y distance
         camPos.setY(2);
         camPos.addLocal(pos);
-        cam.setLocation(camPos);
+        getCam().setLocation(camPos);
 
         Vector3f lookAt = new Vector3f(dir);
         lookAt.multLocal(7); // look at dist
         lookAt.addLocal(pos);
-        cam.lookAt(lookAt, Vector3f.UNIT_Y);
+        getCam().lookAt(lookAt, Vector3f.UNIT_Y);
     }
 
     @Override

@@ -109,7 +109,7 @@ public class TestBetterCharacter extends SimpleApplication implements ActionList
 
         // Set forward camera node that follows the character, only used when
         // view is "locked"
-        camNode = new CameraNode("CamNode", cam);
+        camNode = new CameraNode("CamNode", getCam());
         camNode.setControlDir(ControlDirection.SpatialToCamera);
         camNode.setLocalTranslation(new Vector3f(0, 2, -6));
         Quaternion quat = new Quaternion();
@@ -159,7 +159,7 @@ public class TestBetterCharacter extends SimpleApplication implements ActionList
         physicsCharacter.setViewDirection(viewDirection);
         fpsText.setText("Touch da ground = " + physicsCharacter.isOnGround());
         if (!lockView) {
-            cam.lookAt(characterNode.getWorldTranslation().add(new Vector3f(0, 2, 0)), Vector3f.UNIT_Y);
+            getCam().lookAt(characterNode.getWorldTranslation().add(new Vector3f(0, 2, 0)), Vector3f.UNIT_Y);
         }
     }
 

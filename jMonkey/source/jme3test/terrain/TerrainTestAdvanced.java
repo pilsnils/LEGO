@@ -197,8 +197,8 @@ public class TerrainTestAdvanced extends SimpleApplication {
         light.setDirection((new Vector3f(-0.1f, -0.1f, -0.1f)).normalize());
         rootNode.addLight(light);
 
-        cam.setLocation(new Vector3f(0, 10, -10));
-        cam.lookAtDirection(new Vector3f(0, -1.5f, -1).normalizeLocal(), Vector3f.UNIT_Y);
+        getCam().setLocation(new Vector3f(0, 10, -10));
+        getCam().lookAtDirection(new Vector3f(0, -1.5f, -1).normalizeLocal(), Vector3f.UNIT_Y);
         flyCam.setMoveSpeed(400);
         
         rootNode.attachChild(createAxisMarker(20));

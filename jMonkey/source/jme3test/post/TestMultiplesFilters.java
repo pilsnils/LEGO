@@ -68,8 +68,8 @@ public class TestMultiplesFilters extends SimpleApplication {
 
     public void simpleInitApp() {
         this.flyCam.setMoveSpeed(10);
-        cam.setLocation(new Vector3f(6.0344796f, 1.5054002f, 55.572033f));
-        cam.setRotation(new Quaternion(0.0016069f, 0.9810479f, -0.008143323f, 0.19358753f));
+        getCam().setLocation(new Vector3f(6.0344796f, 1.5054002f, 55.572033f));
+        getCam().setRotation(new Quaternion(0.0016069f, 0.9810479f, -0.008143323f, 0.19358753f));
 
         // load sky
         rootNode.attachChild(SkyFactory.createSky(assetManager, "Textures/Sky/Bright/BrightSky.dds", false));

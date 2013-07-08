@@ -176,8 +176,8 @@ public class TerrainTestCollision extends SimpleApplication {
         dl.setColor(new ColorRGBA(0.50f, 0.40f, 0.50f, 1.0f));
         rootNode.addLight(dl);
 
-        cam.setLocation(new Vector3f(0, 25, -10));
-        cam.lookAtDirection(new Vector3f(0, -1, 0).normalizeLocal(), Vector3f.UNIT_Y);
+        getCam().setLocation(new Vector3f(0, 25, -10));
+        getCam().lookAtDirection(new Vector3f(0, -1, 0).normalizeLocal(), Vector3f.UNIT_Y);
     }
 
     public void loadHintText() {
@@ -248,8 +248,8 @@ public class TerrainTestCollision extends SimpleApplication {
                 }
             } else if (binding.equals("shoot") && !keyPressed) {
 
-                Vector3f origin = cam.getWorldCoordinates(new Vector2f(settings.getWidth() / 2, settings.getHeight() / 2), 0.0f);
-                Vector3f direction = cam.getWorldCoordinates(new Vector2f(settings.getWidth() / 2, settings.getHeight() / 2), 0.3f);
+                Vector3f origin = getCam().getWorldCoordinates(new Vector2f(settings.getWidth() / 2, settings.getHeight() / 2), 0.0f);
+                Vector3f direction = getCam().getWorldCoordinates(new Vector2f(settings.getWidth() / 2, settings.getHeight() / 2), 0.3f);
                 direction.subtractLocal(origin).normalizeLocal();
 
 

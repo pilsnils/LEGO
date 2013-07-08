@@ -304,7 +304,7 @@ public class TestWalkingChar extends SimpleApplication implements ActionListener
 
     private void setupChaseCamera() {
         flyCam.setEnabled(false);
-        chaseCam = new ChaseCamera(cam, model, inputManager);
+        chaseCam = new ChaseCamera(getCam(), model, inputManager);
     }
 
     private void setupAnimationController() {
@@ -319,8 +319,8 @@ public class TestWalkingChar extends SimpleApplication implements ActionListener
 
     @Override
     public void simpleUpdate(float tpf) {
-        Vector3f camDir = cam.getDirection().clone().multLocal(0.1f);
-        Vector3f camLeft = cam.getLeft().clone().multLocal(0.1f);
+        Vector3f camDir = getCam().getDirection().clone().multLocal(0.1f);
+        Vector3f camLeft = getCam().getLeft().clone().multLocal(0.1f);
         camDir.y = 0;
         camLeft.y = 0;
         walkDirection.set(0, 0, 0);
@@ -396,10 +396,10 @@ public class TestWalkingChar extends SimpleApplication implements ActionListener
         Geometry bulletg = new Geometry("bullet", bullet);
         bulletg.setMaterial(matBullet);
         bulletg.setShadowMode(ShadowMode.CastAndReceive);
-        bulletg.setLocalTranslation(character.getPhysicsLocation().add(cam.getDirection().mult(5)));
+        bulletg.setLocalTranslation(character.getPhysicsLocation().add(getCam().getDirection().mult(5)));
         RigidBodyControl bulletControl = new BombControl(bulletCollisionShape, 1);
         bulletControl.setCcdMotionThreshold(0.1f);
-        bulletControl.setLinearVelocity(cam.getDirection().mult(80));
+        bulletControl.setLinearVelocity(getCam().getDirection().mult(80));
         bulletg.addControl(bulletControl);
         rootNode.attachChild(bulletg);
         getPhysicsSpace().add(bulletControl);

@@ -82,7 +82,7 @@ public class TestCameraNode extends SimpleApplication implements AnalogListener,
     rootNode.attachChild(ground);
 
     //creating the camera Node
-    camNode = new CameraNode("CamNode", cam);
+    camNode = new CameraNode("CamNode", getCam());
     //Setting the direction to Spatial to camera, this means the camera will copy the movements of the Node
     camNode.setControlDir(ControlDirection.SpatialToCamera);
     //attaching the camNode to the teaNode
@@ -112,7 +112,7 @@ public class TestCameraNode extends SimpleApplication implements AnalogListener,
 
   public void onAnalog(String name, float value, float tpf) {
     //computing the normalized direction of the cam to move the teaNode
-    direction.set(cam.getDirection()).normalizeLocal();
+    direction.set(getCam().getDirection()).normalizeLocal();
     if (name.equals("moveForward")) {
       direction.multLocal(5 * tpf);
       teaNode.move(direction);

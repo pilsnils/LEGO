@@ -24,8 +24,8 @@ public class TestTransparentCartoonEdge extends SimpleApplication {
 
     public void simpleInitApp() {
         renderManager.setAlphaToCoverage(true);
-        cam.setLocation(new Vector3f(0.14914267f, 0.58147097f, 4.7686534f));
-        cam.setRotation(new Quaternion(-0.0044764364f, 0.9767943f, 0.21314798f, 0.020512417f));
+        getCam().setLocation(new Vector3f(0.14914267f, 0.58147097f, 4.7686534f));
+        getCam().setRotation(new Quaternion(-0.0044764364f, 0.9767943f, 0.21314798f, 0.020512417f));
 
 //        cam.setLocation(new Vector3f(2.0606942f, 3.20342f, 6.7860126f));
 //        cam.setRotation(new Quaternion(-0.017481906f, 0.98241085f, -0.12393151f, -0.13857932f));

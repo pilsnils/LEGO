@@ -86,8 +86,8 @@ public class TestRagdollCharacter extends SimpleApplication implements AnimEvent
         initWall(2,1,1);
         setupLight();
 
-        cam.setLocation(new Vector3f(-8,0,-4));
-        cam.lookAt(new Vector3f(4,0,-7), Vector3f.UNIT_Y);
+        getCam().setLocation(new Vector3f(-8,0,-4));
+        getCam().lookAt(new Vector3f(4,0,-7), Vector3f.UNIT_Y);
 
         model = (Node) assetManager.loadModel("Models/Sinbad/Sinbad.mesh.xml");
         model.lookAt(new Vector3f(0,0,-1), Vector3f.UNIT_Y);
@@ -224,7 +224,7 @@ public class TestRagdollCharacter extends SimpleApplication implements AnimEvent
         }else if(rightRotate){
             model.rotate(0, -tpf, 0);
         }
-        fpsText.setText(cam.getLocation() + "/" + cam.getRotation());
+        fpsText.setText(getCam().getLocation() + "/" + getCam().getRotation());
     }
 
 }

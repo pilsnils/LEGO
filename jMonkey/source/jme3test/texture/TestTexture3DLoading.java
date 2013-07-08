@@ -76,6 +76,6 @@ public class TestTexture3DLoading extends SimpleApplication {
 
         rootNode.attachChild(geom);
 
-        cam.setLocation(new Vector3f(4.7444625f, 5.160054f, 13.1939f));
+        getCam().setLocation(new Vector3f(4.7444625f, 5.160054f, 13.1939f));
     }
 }

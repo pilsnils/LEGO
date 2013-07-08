@@ -57,15 +57,15 @@ public class TestJoystick extends SimpleApplication {
         }
 
  
-        int gamepadSize = cam.getHeight() / 2;
+        int gamepadSize = getCam().getHeight() / 2;
         float scale = gamepadSize / 512.0f;        
         gamepad = new GamepadView();       
-        gamepad.setLocalTranslation( cam.getWidth() - gamepadSize - (scale * 20), 0, 0 );
+        gamepad.setLocalTranslation( getCam().getWidth() - gamepadSize - (scale * 20), 0, 0 );
         gamepad.setLocalScale( scale, scale, scale ); 
         guiNode.attachChild(gamepad); 
 
         joystickInfo = new Node( "joystickInfo" );
-        joystickInfo.setLocalTranslation( 0, cam.getHeight(), 0 );
+        joystickInfo.setLocalTranslation( 0, getCam().getHeight(), 0 );
         guiNode.attachChild( joystickInfo );
 
         // Add a raw listener because it's eisier to get all joystick events

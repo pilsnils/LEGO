@@ -136,7 +136,7 @@ public class TestOctree extends SimpleApplication implements SceneProcessor {
     public void postQueue(RenderQueue rq) {
         renderSet.clear();
         //tree.generateRenderSet(renderSet, cam);
-        fastRoot.generateRenderSet(globalGeoms, renderSet, cam, octBox, true);
+        fastRoot.generateRenderSet(globalGeoms, renderSet, getCam(), octBox, true);
 //        System.out.println("Geoms: "+renderSet.size());
         int tris = 0;
 

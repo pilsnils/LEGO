@@ -95,7 +95,7 @@ public class HelloPicking extends SimpleApplication {
         // 1. Reset results list.
         CollisionResults results = new CollisionResults();
         // 2. Aim the ray from cam loc to cam direction.
-        Ray ray = new Ray(cam.getLocation(), cam.getDirection());
+        Ray ray = new Ray(getCam().getLocation(), getCam().getDirection());
         // 3. Collect intersections between Ray and Shootables in results list.
         shootables.collideWith(ray, results);
         // 4. Print the results

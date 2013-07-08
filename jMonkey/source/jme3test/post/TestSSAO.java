@@ -54,8 +54,8 @@ public class TestSSAO extends SimpleApplication {
 
     @Override
     public void simpleInitApp() {
-        cam.setLocation(new Vector3f(68.45442f, 8.235511f, 7.9676695f));
-        cam.setRotation(new Quaternion(0.046916496f, -0.69500375f, 0.045538206f, 0.7160271f));
+        getCam().setLocation(new Vector3f(68.45442f, 8.235511f, 7.9676695f));
+        getCam().setRotation(new Quaternion(0.046916496f, -0.69500375f, 0.045538206f, 0.7160271f));
 
 
         flyCam.setMoveSpeed(50);

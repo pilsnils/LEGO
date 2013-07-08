@@ -86,7 +86,7 @@ public class TestHDR extends SimpleApplication {
             dispQuad = hdrRender.createDisplayQuad();
             dispQuad.setWidth(128);
             dispQuad.setHeight(128);
-            dispQuad.setPosition(30, cam.getHeight() - 128 - 30);
+            dispQuad.setPosition(30, getCam().getHeight() - 128 - 30);
             guiNode.attachChild(dispQuad);
         }
     }

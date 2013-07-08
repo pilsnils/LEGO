@@ -166,7 +166,7 @@ public class TestJaime  extends SimpleApplication {
         cinematic.enqueueCinematicEvent( new AnimationEvent(jaime, "Wave", LoopMode.DontLoop));
         cinematic.enqueueCinematicEvent( new AnimationEvent(jaime, "Idle", LoopMode.DontLoop));        
         
-        CameraNode camNode = cinematic.bindCamera("cam", cam);
+        CameraNode camNode = cinematic.bindCamera("cam", getCam());
         camNode.setLocalTranslation(new Vector3f(1.1f, 1.2f, 2.9f));
         camNode.lookAt(new Vector3f(0, 0.5f, 0), Vector3f.UNIT_Y);
         

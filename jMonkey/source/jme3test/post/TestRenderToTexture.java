@@ -106,8 +106,8 @@ public class TestRenderToTexture extends SimpleApplication implements ActionList
 
     @Override
     public void simpleInitApp() {
-        cam.setLocation(new Vector3f(3, 3, 3));
-        cam.lookAt(Vector3f.ZERO, Vector3f.UNIT_Y);
+        getCam().setLocation(new Vector3f(3, 3, 3));
+        getCam().lookAt(Vector3f.ZERO, Vector3f.UNIT_Y);
 
         //setup main scene
         Geometry quad = new Geometry("box", new Box(Vector3f.ZERO, 1,1,1));

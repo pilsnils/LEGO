@@ -59,8 +59,8 @@ public class TestPointLightShadows extends SimpleApplication {
     @Override
     public void simpleInitApp() {
         flyCam.setMoveSpeed(10);
-        cam.setLocation(new Vector3f(0.040581334f, 1.7745866f, 6.155161f));
-        cam.setRotation(new Quaternion(4.3868728E-5f, 0.9999293f, -0.011230096f, 0.0039059948f));
+        getCam().setLocation(new Vector3f(0.040581334f, 1.7745866f, 6.155161f));
+        getCam().setRotation(new Quaternion(4.3868728E-5f, 0.9999293f, -0.011230096f, 0.0039059948f));
 
 
         Node scene = (Node) assetManager.loadModel("Models/Test/CornellBox.j3o");

@@ -68,8 +68,8 @@ public class TestBloom extends SimpleApplication {
     @Override
     public void simpleInitApp() {
         // put the camera in a bad position
-        cam.setLocation(new Vector3f(-2.336393f, 11.91392f, -7.139601f));
-        cam.setRotation(new Quaternion(0.23602544f, 0.11321983f, -0.027698677f, 0.96473104f));
+        getCam().setLocation(new Vector3f(-2.336393f, 11.91392f, -7.139601f));
+        getCam().setRotation(new Quaternion(0.23602544f, 0.11321983f, -0.027698677f, 0.96473104f));
         //cam.setFrustumFar(1000);
 
 

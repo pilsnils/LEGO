@@ -104,7 +104,7 @@ public class TestFBOPassthrough extends SimpleApplication {
         //do FBO rendering
         r.setFrameBuffer(fb);
 
-        rm.setCamera(cam, false); // FBO uses current camera
+        rm.setCamera(getCam(), false); // FBO uses current camera
         r.clearBuffers(true, true, true);
         rm.renderScene(fbNode, viewPort);
         rm.flushQueue(viewPort);

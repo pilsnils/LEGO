@@ -130,21 +130,21 @@ public class TestCcd extends SimpleApplication implements ActionListener {
             Geometry bulletg = new Geometry("bullet", bullet);
             bulletg.setMaterial(mat);
             bulletg.setName("bullet");
-            bulletg.setLocalTranslation(cam.getLocation());
+            bulletg.setLocalTranslation(getCam().getLocation());
             bulletg.setShadowMode(ShadowMode.CastAndReceive);
             bulletg.addControl(new RigidBodyControl(bulletCollisionShape, 1));
             bulletg.getControl(RigidBodyControl.class).setCcdMotionThreshold(0.1f);
-            bulletg.getControl(RigidBodyControl.class).setLinearVelocity(cam.getDirection().mult(40));
+            bulletg.getControl(RigidBodyControl.class).setLinearVelocity(getCam().getDirection().mult(40));
             rootNode.attachChild(bulletg);
             getPhysicsSpace().add(bulletg);
         } else if (binding.equals("shoot2") && !value) {
             Geometry bulletg = new Geometry("bullet", bullet);
             bulletg.setMaterial(mat2);
             bulletg.setName("bullet");
-            bulletg.setLocalTranslation(cam.getLocation());
+            bulletg.setLocalTranslation(getCam().getLocation());
             bulletg.setShadowMode(ShadowMode.CastAndReceive);
             bulletg.addControl(new RigidBodyControl(bulletCollisionShape, 1));
-            bulletg.getControl(RigidBodyControl.class).setLinearVelocity(cam.getDirection().mult(40));
+            bulletg.getControl(RigidBodyControl.class).setLinearVelocity(getCam().getDirection().mult(40));
             rootNode.attachChild(bulletg);
             getPhysicsSpace().add(bulletg);
         }

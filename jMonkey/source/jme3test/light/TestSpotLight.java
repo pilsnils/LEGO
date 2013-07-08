@@ -126,8 +126,8 @@ public class TestSpotLight extends SimpleApplication {
 
     @Override
     public void simpleInitApp() {
-        cam.setLocation(new Vector3f(27.492603f, 29.138166f, -13.232513f));
-        cam.setRotation(new Quaternion(0.25168246f, -0.10547892f, 0.02760565f, 0.96164864f));
+        getCam().setLocation(new Vector3f(27.492603f, 29.138166f, -13.232513f));
+        getCam().setRotation(new Quaternion(0.25168246f, -0.10547892f, 0.02760565f, 0.96164864f));
         flyCam.setMoveSpeed(30);
      
         setupLighting();

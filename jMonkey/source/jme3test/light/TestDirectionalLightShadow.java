@@ -77,7 +77,7 @@ public class TestDirectionalLightShadow extends SimpleApplication implements Act
     private float frustumSize = 100;
 
     public void onAnalog(String name, float value, float tpf) {
-        if (cam.isParallelProjection()) {
+        if (getCam().isParallelProjection()) {
             // Instead of moving closer/farther to object, we zoom in/out.
             if (name.equals("Size-")) {
                 frustumSize += 5f * tpf;
@@ -85,8 +85,8 @@ public class TestDirectionalLightShadow extends SimpleApplication implements Act
                 frustumSize -= 5f * tpf;
             }
 
-            float aspect = (float) cam.getWidth() / cam.getHeight();
-            cam.setFrustum(-1000, 1000, -aspect * frustumSize, aspect * frustumSize, frustumSize, -frustumSize);
+            float aspect = (float) getCam().getWidth() / getCam().getHeight();
+            getCam().setFrustum(-1000, 1000, -aspect * frustumSize, aspect * frustumSize, frustumSize, -frustumSize);
         }
     }
 
@@ -156,8 +156,8 @@ public class TestDirectionalLightShadow extends SimpleApplication implements Act
     @Override
     public void simpleInitApp() {
         // put the camera in a bad position
-        cam.setLocation(new Vector3f(65.25412f, 44.38738f, 9.087874f));
-        cam.setRotation(new Quaternion(0.078139365f, 0.050241485f, -0.003942559f, 0.9956679f));
+        getCam().setLocation(new Vector3f(65.25412f, 44.38738f, 9.087874f));
+        getCam().setRotation(new Quaternion(0.078139365f, 0.050241485f, -0.003942559f, 0.9956679f));
 
         flyCam.setMoveSpeed(100);
 
@@ -227,12 +227,12 @@ public class TestDirectionalLightShadow extends SimpleApplication implements Act
 
 
         if (name.equals("pp") && keyPressed) {
-            if (cam.isParallelProjection()) {
-                cam.setFrustumPerspective(45, (float) cam.getWidth() / cam.getHeight(), 1, 1000);
+            if (getCam().isParallelProjection()) {
+                getCam().setFrustumPerspective(45, (float) getCam().getWidth() / getCam().getHeight(), 1, 1000);
             } else {
-                cam.setParallelProjection(true);
-                float aspect = (float) cam.getWidth() / cam.getHeight();
-                cam.setFrustum(-1000, 1000, -aspect * frustumSize, aspect * frustumSize, frustumSize, -frustumSize);
+                getCam().setParallelProjection(true);
+                float aspect = (float) getCam().getWidth() / getCam().getHeight();
+                getCam().setFrustum(-1000, 1000, -aspect * frustumSize, aspect * frustumSize, frustumSize, -frustumSize);
 
             }
         }

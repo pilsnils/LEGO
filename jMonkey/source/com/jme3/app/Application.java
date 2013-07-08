@@ -77,7 +77,7 @@ public class Application implements SystemListener {
     protected JmeContext context;
     protected AppSettings settings;
     protected Timer timer = new NanoTimer();
-    protected Camera cam;
+    private Camera cam;
     protected Listener listener;
 
     protected boolean inputEnabled = true;
@@ -88,7 +88,7 @@ public class Application implements SystemListener {
     protected KeyInput keyInput;
     protected JoyInput joyInput;
     protected TouchInput touchInput;
-    protected InputManager inputManager;
+    public InputManager inputManager;
     protected AppStateManager stateManager;
 
     private final ConcurrentLinkedQueue<AppTask<?>> taskQueue = new ConcurrentLinkedQueue<AppTask<?>>();
@@ -241,16 +241,16 @@ public class Application implements SystemListener {
      * units respectively.
      */
     private void initCamera(){
-        cam = new Camera(settings.getWidth(), settings.getHeight());
+        setCam(new Camera(settings.getWidth(), settings.getHeight()));
 
-        cam.setFrustumPerspective(45f, (float)cam.getWidth() / cam.getHeight(), 1f, 1000f);
-        cam.setLocation(new Vector3f(0f, 0f, 10f));
-        cam.lookAt(new Vector3f(0f, 0f, 0f), Vector3f.UNIT_Y);
+        getCam().setFrustumPerspective(45f, (float)getCam().getWidth() / getCam().getHeight(), 1f, 1000f);
+        getCam().setLocation(new Vector3f(0f, 0f, 10f));
+        getCam().lookAt(new Vector3f(0f, 0f, 0f), Vector3f.UNIT_Y);
 
         renderManager = new RenderManager(renderer);
         //Remy - 09/14/2010 setted the timer in the renderManager
         renderManager.setTimer(timer);
-        viewPort = renderManager.createMainView("Default", cam);
+        viewPort = renderManager.createMainView("Default", getCam());
         viewPort.setClearFlags(true, true, true);
 
         // Create a new cam for the gui
@@ -354,7 +354,7 @@ public class Application implements SystemListener {
      * @return The {@link Camera camera} for the application
      */
     public Camera getCamera(){
-        return cam;
+        return getCam();
     }
 
     /**
@@ -652,5 +652,13 @@ public class Application implements SystemListener {
     public ViewPort getViewPort() {
         return viewPort;
     }
+
+	public void setCam(Camera cam) {
+		this.cam = cam;
+	}
+
+	public Camera getCam() {
+		return cam;
+	}
 
 }

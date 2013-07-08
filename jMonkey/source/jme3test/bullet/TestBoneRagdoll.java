@@ -86,8 +86,8 @@ public class TestBoneRagdoll extends SimpleApplication implements RagdollCollisi
         initCrossHairs();
         initMaterial();
 
-        cam.setLocation(new Vector3f(0.26924422f, 6.646658f, 22.265987f));
-        cam.setRotation(new Quaternion(-2.302544E-4f, 0.99302495f, -0.117888905f, -0.0019395084f));
+        getCam().setLocation(new Vector3f(0.26924422f, 6.646658f, 22.265987f));
+        getCam().setRotation(new Quaternion(-2.302544E-4f, 0.99302495f, -0.117888905f, -0.0019395084f));
 
 
         bulletAppState = new BulletAppState();
@@ -181,12 +181,12 @@ public class TestBoneRagdoll extends SimpleApplication implements RagdollCollisi
                 if (name.equals("shoot") && !isPressed) {
                     Geometry bulletg = new Geometry("bullet", bullet);
                     bulletg.setMaterial(matBullet);
-                    bulletg.setLocalTranslation(cam.getLocation());
+                    bulletg.setLocalTranslation(getCam().getLocation());
                     bulletg.setLocalScale(bulletSize);
                     bulletCollisionShape = new SphereCollisionShape(bulletSize);
                     RigidBodyControl bulletNode = new RigidBodyControl(bulletCollisionShape, bulletSize * 10);
                     bulletNode.setCcdMotionThreshold(0.001f);
-                    bulletNode.setLinearVelocity(cam.getDirection().mult(80));
+                    bulletNode.setLinearVelocity(getCam().getDirection().mult(80));
                     bulletg.addControl(bulletNode);
                     rootNode.attachChild(bulletg);
                     getPhysicsSpace().add(bulletNode);
@@ -194,14 +194,14 @@ public class TestBoneRagdoll extends SimpleApplication implements RagdollCollisi
                 if (name.equals("boom") && !isPressed) {
                     Geometry bulletg = new Geometry("bullet", bullet);
                     bulletg.setMaterial(matBullet);
-                    bulletg.setLocalTranslation(cam.getLocation());
+                    bulletg.setLocalTranslation(getCam().getLocation());
                     bulletg.setLocalScale(bulletSize);
                     bulletCollisionShape = new SphereCollisionShape(bulletSize);
                     BombControl bulletNode = new BombControl(assetManager, bulletCollisionShape, 1);
                     bulletNode.setForceFactor(8);
                     bulletNode.setExplosionRadius(20);
                     bulletNode.setCcdMotionThreshold(0.001f);
-                    bulletNode.setLinearVelocity(cam.getDirection().mult(180));
+                    bulletNode.setLinearVelocity(getCam().getDirection().mult(180));
                     bulletg.addControl(bulletNode);
                     rootNode.attachChild(bulletg);
                     getPhysicsSpace().add(bulletNode);

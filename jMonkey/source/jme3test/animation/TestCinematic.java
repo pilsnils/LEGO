@@ -95,7 +95,7 @@ public class TestCinematic extends SimpleApplication {
         final BitmapText text = new BitmapText(guiFont, false);
         text.setSize(guiFont.getCharSet().getRenderedSize());
         text.setText("Press enter to play/pause cinematic");
-        text.setLocalTranslation((cam.getWidth() - text.getLineWidth()) / 2, cam.getHeight(), 0);
+        text.setLocalTranslation((getCam().getWidth() - text.getLineWidth()) / 2, getCam().getHeight(), 0);
         guiNode.attachChild(text);
 
 
@@ -174,18 +174,18 @@ public class TestCinematic extends SimpleApplication {
 
         //cinematic.setSpeed(2);
         flyCam.setEnabled(false);
-        chaseCam = new ChaseCamera(cam, model, inputManager);
+        chaseCam = new ChaseCamera(getCam(), model, inputManager);
         initInputs();
 
     }
 
     private void createCameraMotion() {
 
-        CameraNode camNode = cinematic.bindCamera("topView", cam);
+        CameraNode camNode = cinematic.bindCamera("topView", getCam());
         camNode.setLocalTranslation(new Vector3f(0, 50, 0));
         camNode.lookAt(teapot.getLocalTranslation(), Vector3f.UNIT_Y);
 
-        CameraNode camNode2 = cinematic.bindCamera("aroundCam", cam);
+        CameraNode camNode2 = cinematic.bindCamera("aroundCam", getCam());
         path = new MotionPath();
         path.setCycle(true);
         path.addWayPoint(new Vector3f(20, 3, 0));

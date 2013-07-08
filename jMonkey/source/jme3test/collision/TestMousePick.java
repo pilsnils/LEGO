@@ -75,8 +75,8 @@ public class TestMousePick extends SimpleApplication {
 
     @Override
     public void simpleUpdate(float tpf){
-        Vector3f origin    = cam.getWorldCoordinates(inputManager.getCursorPosition(), 0.0f);
-        Vector3f direction = cam.getWorldCoordinates(inputManager.getCursorPosition(), 0.3f);
+        Vector3f origin    = getCam().getWorldCoordinates(inputManager.getCursorPosition(), 0.0f);
+        Vector3f direction = getCam().getWorldCoordinates(inputManager.getCursorPosition(), 0.3f);
         direction.subtractLocal(origin).normalizeLocal();
 
         Ray ray = new Ray(origin, direction);

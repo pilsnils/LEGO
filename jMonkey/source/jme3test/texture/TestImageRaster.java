@@ -89,7 +89,7 @@ public class TestImageRaster extends SimpleApplication {
    
     @Override
     public void simpleInitApp() {
-        cam.setLocation(new Vector3f(16, 6, 36));
+        getCam().setLocation(new Vector3f(16, 6, 36));
         flyCam.setMoveSpeed(10);
         
         Texture tex = assetManager.loadTexture("com/jme3/app/Monkey.png");

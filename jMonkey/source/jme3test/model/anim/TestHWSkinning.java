@@ -63,8 +63,8 @@ public class TestHWSkinning extends SimpleApplication implements ActionListener{
     @Override
     public void simpleInitApp() {
         flyCam.setMoveSpeed(10f);
-        cam.setLocation(new Vector3f(3.8664846f, 6.2704787f, 9.664585f));
-        cam.setRotation(new Quaternion(-0.054774776f, 0.94064945f, -0.27974048f, -0.18418397f));
+        getCam().setLocation(new Vector3f(3.8664846f, 6.2704787f, 9.664585f));
+        getCam().setRotation(new Quaternion(-0.054774776f, 0.94064945f, -0.27974048f, -0.18418397f));
         makeHudText();
  
         DirectionalLight dl = new DirectionalLight();
@@ -108,7 +108,7 @@ public class TestHWSkinning extends SimpleApplication implements ActionListener{
         hwsText = new BitmapText(guiFont, false);
         hwsText.setSize(guiFont.getCharSet().getRenderedSize());
         hwsText.setText("HWS : "+ hwSkinningEnable);
-        hwsText.setLocalTranslation(0, cam.getHeight(), 0);
+        hwsText.setLocalTranslation(0, getCam().getHeight(), 0);
         guiNode.attachChild(hwsText);
     }
 }

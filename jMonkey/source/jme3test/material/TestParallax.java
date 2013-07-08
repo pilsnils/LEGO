@@ -112,8 +112,8 @@ public class TestParallax extends SimpleApplication {
 
     @Override
     public void simpleInitApp() {
-        cam.setLocation(new Vector3f(-15.445636f, 30.162927f, 60.252777f));
-        cam.setRotation(new Quaternion(0.05173137f, 0.92363626f, -0.13454558f, 0.35513034f));
+        getCam().setLocation(new Vector3f(-15.445636f, 30.162927f, 60.252777f));
+        getCam().setRotation(new Quaternion(0.05173137f, 0.92363626f, -0.13454558f, 0.35513034f));
         flyCam.setMoveSpeed(30);
 
 

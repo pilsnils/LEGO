@@ -102,8 +102,8 @@ public class WorldOfInception extends SimpleApplication implements AnalogListene
     @Override
     public void simpleInitApp() {
         //set far frustum only so we see the outer world longer
-        cam.setFrustumFar(10000);
-        cam.setLocation(Vector3f.ZERO);
+        getCam().setFrustumFar(10000);
+        getCam().setLocation(Vector3f.ZERO);
         debugTools = new DebugTools(assetManager);
         rootNode.attachChild(debugTools.debugNode);
         poiMaterial = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");

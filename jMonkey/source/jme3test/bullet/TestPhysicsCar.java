@@ -174,7 +174,7 @@ public class TestPhysicsCar extends SimpleApplication implements ActionListener 
 
     @Override
     public void simpleUpdate(float tpf) {
-        cam.lookAt(vehicle.getPhysicsLocation(), Vector3f.UNIT_Y);
+        getCam().lookAt(vehicle.getPhysicsLocation(), Vector3f.UNIT_Y);
     }
 
     public void onAction(String binding, boolean value, float tpf) {

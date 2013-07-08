@@ -98,18 +98,18 @@ public class TestSpotLightTerrain extends SimpleApplication {
         ambLight.setColor(new ColorRGBA(0.8f, 0.8f, 0.8f, 0.2f));
         rootNode.addLight(ambLight);
 
-        cam.setLocation(new Vector3f(-41.219646f, -84.8363f, -171.67267f));
-        cam.setRotation(new Quaternion(-0.04562731f, 0.89917684f, -0.09668826f, -0.4243236f));
-        sl.setDirection(cam.getDirection());
-        sl.setPosition(cam.getLocation());
+        getCam().setLocation(new Vector3f(-41.219646f, -84.8363f, -171.67267f));
+        getCam().setRotation(new Quaternion(-0.04562731f, 0.89917684f, -0.09668826f, -0.4243236f));
+        sl.setDirection(getCam().getDirection());
+        sl.setPosition(getCam().getLocation());
 
     }
     
       @Override
     public void simpleUpdate(float tpf) {
         super.simpleUpdate(tpf);
-        sl.setDirection(cam.getDirection());
-        sl.setPosition(cam.getLocation());
+        sl.setDirection(getCam().getDirection());
+        sl.setPosition(getCam().getLocation());
 
     }
 

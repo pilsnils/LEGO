@@ -60,9 +60,9 @@ public class TestDepthOfField extends SimpleApplication {
         mainScene.addLight(l);
 
         flyCam.setMoveSpeed(50);
-        cam.setFrustumFar(3000);
-        cam.setLocation(new Vector3f(-700, 100, 300));
-        cam.setRotation(new Quaternion().fromAngles(new float[]{FastMath.PI * 0.06f, FastMath.PI * 0.65f, 0}));
+        getCam().setFrustumFar(3000);
+        getCam().setLocation(new Vector3f(-700, 100, 300));
+        getCam().setRotation(new Quaternion().fromAngles(new float[]{FastMath.PI * 0.06f, FastMath.PI * 0.65f, 0}));
 
 
         Spatial sky = SkyFactory.createSky(assetManager, "Scenes/Beach/FullskiesSunset0068.dds", false);
@@ -185,8 +185,8 @@ public class TestDepthOfField extends SimpleApplication {
 
     @Override
     public void simpleUpdate(float tpf) {
-        Vector3f origin = cam.getWorldCoordinates(new Vector2f(settings.getWidth() / 2, settings.getHeight() / 2), 0.0f);
-        Vector3f direction = cam.getWorldCoordinates(new Vector2f(settings.getWidth() / 2, settings.getHeight() / 2), 0.3f);
+        Vector3f origin = getCam().getWorldCoordinates(new Vector2f(settings.getWidth() / 2, settings.getHeight() / 2), 0.0f);
+        Vector3f direction = getCam().getWorldCoordinates(new Vector2f(settings.getWidth() / 2, settings.getHeight() / 2), 0.3f);
         direction.subtractLocal(origin).normalizeLocal();
         Ray ray = new Ray(origin, direction);
         CollisionResults results = new CollisionResults();

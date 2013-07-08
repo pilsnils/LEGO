@@ -61,8 +61,8 @@ public class TestPostFiltersCompositing extends SimpleApplication {
 
     public void simpleInitApp() {
         this.flyCam.setMoveSpeed(10);
-        cam.setLocation(new Vector3f(6.0344796f, 1.5054002f, 55.572033f));
-        cam.setRotation(new Quaternion(0.0016069f, 0.9810479f, -0.008143323f, 0.19358753f));
+        getCam().setLocation(new Vector3f(6.0344796f, 1.5054002f, 55.572033f));
+        getCam().setRotation(new Quaternion(0.0016069f, 0.9810479f, -0.008143323f, 0.19358753f));
 
         makeScene();
 
@@ -72,8 +72,8 @@ public class TestPostFiltersCompositing extends SimpleApplication {
         viewPort.addProcessor(fpp);
 
         //creating a frame buffer for the mainviewport
-        FrameBuffer mainVPFrameBuffer = new FrameBuffer(cam.getWidth(), cam.getHeight(), 1);
-        Texture2D mainVPTexture = new Texture2D(cam.getWidth(), cam.getHeight(), Image.Format.RGBA8);
+        FrameBuffer mainVPFrameBuffer = new FrameBuffer(getCam().getWidth(), getCam().getHeight(), 1);
+        Texture2D mainVPTexture = new Texture2D(getCam().getWidth(), getCam().getHeight(), Image.Format.RGBA8);
         mainVPFrameBuffer.addColorTexture(mainVPTexture);
         mainVPFrameBuffer.setDepthBuffer(Image.Format.Depth);
         viewPort.setOutputFrameBuffer(mainVPFrameBuffer);

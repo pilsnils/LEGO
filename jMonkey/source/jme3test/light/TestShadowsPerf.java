@@ -73,13 +73,13 @@ public class TestShadowsPerf extends SimpleApplication {
         flyCam.setMoveSpeed(50);
         flyCam.setEnabled(false);
         viewPort.setBackgroundColor(ColorRGBA.DarkGray);
-        cam.setLocation(new Vector3f(-53.952988f, 27.15874f, -32.875023f));
-        cam.setRotation(new Quaternion(0.1564309f, 0.6910534f, -0.15713608f, 0.6879555f));
+        getCam().setLocation(new Vector3f(-53.952988f, 27.15874f, -32.875023f));
+        getCam().setRotation(new Quaternion(0.1564309f, 0.6910534f, -0.15713608f, 0.6879555f));
 
 //        cam.setLocation(new Vector3f(53.64627f, 130.56f, -11.247704f));
 //        cam.setRotation(new Quaternion(-6.5737107E-4f, 0.76819664f, -0.64021313f, -7.886125E-4f));   
 //// 
-        cam.setFrustumFar(500);
+        getCam().setFrustumFar(500);
 
         mat = assetManager.loadMaterial("Textures/Terrain/Pond/Pond.j3m");
 

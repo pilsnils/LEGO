@@ -151,12 +151,12 @@ public class CubeField extends SimpleApplication implements AnalogListener {
      * @param tpf Tickes Per Frame
      */
     private void camTakeOver(float tpf) {
-        cam.setLocation(player.getLocalTranslation().add(-8, 2, 0));
-        cam.lookAt(player.getLocalTranslation(), Vector3f.UNIT_Y);
+        getCam().setLocation(player.getLocalTranslation().add(-8, 2, 0));
+        getCam().lookAt(player.getLocalTranslation(), Vector3f.UNIT_Y);
         
         Quaternion rot = new Quaternion();
         rot.fromAngleNormalAxis(camAngle, Vector3f.UNIT_Z);
-        cam.setRotation(cam.getRotation().mult(rot));
+        getCam().setRotation(getCam().getRotation().mult(rot));
         camAngle *= FastMath.pow(.99f, fpsRate * tpf);
     }
 

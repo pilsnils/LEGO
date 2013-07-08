@@ -129,8 +129,8 @@ public class TestBatchNodeCluster extends SimpleApplication {
         inputManager.addListener(al, new String[]{"Start Game"});
 
 
-        cam.setLocation(new Vector3f(-34.403286f, 126.65158f, 434.791f));
-        cam.setRotation(new Quaternion(0.022630932f, 0.9749435f, -0.18736298f, 0.11776358f));
+        getCam().setLocation(new Vector3f(-34.403286f, 126.65158f, 434.791f));
+        getCam().setRotation(new Quaternion(0.022630932f, 0.9749435f, -0.18736298f, 0.11776358f));
 
 
         batchNode.batch();

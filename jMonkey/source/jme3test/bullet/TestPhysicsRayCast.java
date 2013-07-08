@@ -42,7 +42,7 @@ public class TestPhysicsRayCast extends SimpleApplication {
  
     @Override
     public void simpleUpdate(float tpf) {
-        List<PhysicsRayTestResult> rayTest = bulletAppState.getPhysicsSpace().rayTest(cam.getLocation(), cam.getLocation().add(cam.getDirection()));
+        List<PhysicsRayTestResult> rayTest = bulletAppState.getPhysicsSpace().rayTest(getCam().getLocation(), getCam().getLocation().add(getCam().getDirection()));
         if (rayTest.size() > 0) {
             PhysicsRayTestResult get = rayTest.get(0);
             PhysicsCollisionObject collisionObject = get.getCollisionObject();

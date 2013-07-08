@@ -241,7 +241,7 @@ public class TestAttachDriver extends SimpleApplication implements ActionListene
     @Override
     public void simpleUpdate(float tpf) {
         Quaternion quat=new Quaternion();
-        cam.lookAt(vehicle.getPhysicsLocation(), Vector3f.UNIT_Y);
+        getCam().lookAt(vehicle.getPhysicsLocation(), Vector3f.UNIT_Y);
     }
 
     public void onAction(String binding, boolean value, float tpf) {

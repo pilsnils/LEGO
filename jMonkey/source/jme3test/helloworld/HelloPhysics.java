@@ -101,8 +101,8 @@ public class HelloPhysics extends SimpleApplication {
     stateManager.attach(bulletAppState);
     //bulletAppState.getPhysicsSpace().enableDebug(assetManager);
     /** Configure cam to look at scene */
-    cam.setLocation(new Vector3f(0, 4f, 6f));
-    cam.lookAt(new Vector3f(2, 2, 0), Vector3f.UNIT_Y);
+    getCam().setLocation(new Vector3f(0, 4f, 6f));
+    getCam().lookAt(new Vector3f(2, 2, 0), Vector3f.UNIT_Y);
     /** Initialize the scene, materials, inputs, and physics space */
     initInputs();
     initMaterials();
@@ -203,14 +203,14 @@ public class HelloPhysics extends SimpleApplication {
     ball_geo.setMaterial(stone_mat);
     rootNode.attachChild(ball_geo);
     /** Position the cannon ball  */
-    ball_geo.setLocalTranslation(cam.getLocation());
+    ball_geo.setLocalTranslation(getCam().getLocation());
     /** Make the ball physcial with a mass > 0.0f */
     ball_phy = new RigidBodyControl(1f);
     /** Add physical ball to physics space. */
     ball_geo.addControl(ball_phy);
     bulletAppState.getPhysicsSpace().add(ball_phy);
     /** Accelerate the physcial ball to shoot it. */
-    ball_phy.setLinearVelocity(cam.getDirection().mult(25));
+    ball_phy.setLinearVelocity(getCam().getDirection().mult(25));
   }
 
   /** A plus sign used as crosshairs to help the player with aiming.*/

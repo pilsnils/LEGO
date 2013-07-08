@@ -58,8 +58,8 @@ public class TestSphere extends SimpleApplication  {
                 rootNode.attachChild(sphere);
             }
         }
-        cam.setLocation(new Vector3f(0, 5, 0));
-        cam.lookAt(Vector3f.ZERO, Vector3f.UNIT_Y);
+        getCam().setLocation(new Vector3f(0, 5, 0));
+        getCam().lookAt(Vector3f.ZERO, Vector3f.UNIT_Y);
     }
 
 }

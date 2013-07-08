@@ -68,8 +68,8 @@ public class TestTriangleStrip extends SimpleApplication {
             }
         }
 
-        cam.setLocation(new Vector3f(8.378951f, 5.4324f, 8.795956f));
-        cam.setRotation(new Quaternion(-0.083419204f, 0.90370524f, -0.20599906f, -0.36595422f));
+        getCam().setLocation(new Vector3f(8.378951f, 5.4324f, 8.795956f));
+        getCam().setRotation(new Quaternion(-0.083419204f, 0.90370524f, -0.20599906f, -0.36595422f));
     }
 
 }

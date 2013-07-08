@@ -58,7 +58,7 @@ public class TestPostWaterLake extends SimpleApplication {
 
     public void simpleInitApp() {
         this.flyCam.setMoveSpeed(10);
-        cam.setLocation(new Vector3f(-27.0f, 1.0f, 75.0f));
+        getCam().setLocation(new Vector3f(-27.0f, 1.0f, 75.0f));
       //  cam.setRotation(new Quaternion(0.03f, 0.9f, 0f, 0.4f));
 
         // load sky

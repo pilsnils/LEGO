@@ -113,7 +113,7 @@ public class TestPhysicsCharacter extends SimpleApplication implements ActionLis
     characterNode.attachChild(model);
 
     // set forward camera node that follows the character
-    camNode = new CameraNode("CamNode", cam);
+    camNode = new CameraNode("CamNode", getCam());
     camNode.setControlDir(ControlDirection.SpatialToCamera);
     camNode.setLocalTranslation(new Vector3f(0, 1, -5));
     camNode.lookAt(model.getLocalTranslation(), Vector3f.UNIT_Y);
@@ -126,8 +126,8 @@ public class TestPhysicsCharacter extends SimpleApplication implements ActionLis
 
    @Override
     public void simpleUpdate(float tpf) {
-        Vector3f camDir = cam.getDirection().mult(0.2f);
-        Vector3f camLeft = cam.getLeft().mult(0.2f);
+        Vector3f camDir = getCam().getDirection().mult(0.2f);
+        Vector3f camLeft = getCam().getLeft().mult(0.2f);
         camDir.y = 0;
         camLeft.y = 0;
         viewDirection.set(camDir);

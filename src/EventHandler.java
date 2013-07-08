@@ -9,6 +9,7 @@ import com.jme3.input.controls.AnalogListener;
 import com.jme3.input.controls.KeyTrigger;
 import com.jme3.input.controls.MouseAxisTrigger;
 import com.jme3.input.controls.MouseButtonTrigger;
+import com.jme3.math.ColorRGBA;
 import com.jme3.math.Ray;
 import com.jme3.math.Vector2f;
 import com.jme3.math.Vector3f;
@@ -29,37 +30,61 @@ public class EventHandler implements ActionListener, AnalogListener{
 	}
 	
 	
-	
-	
+	private CollisionResults getCollisions(){
+		CollisionResults results = new CollisionResults();
+	    Vector2f click2d = main.getInputManager().getCursorPosition();
+	    Vector3f click3d = main.getCam().getWorldCoordinates(new Vector2f(click2d.x, click2d.y), 0f).clone();
+	    Vector3f aim = main.getCam().getWorldCoordinates(new Vector2f(click2d.x, click2d.y), 1f).subtractLocal(click3d).normalizeLocal();
+	    Ray ray = new Ray(click3d, aim);
+	    main.getRootNode().collideWith(ray, results);
+		return results;
+	}
 	/**
 	 * 
 	 */
 	 public void addElement(){
-     	  CollisionResults results = new CollisionResults();
-          Vector2f click2d = main.getInputManager().getCursorPosition();
-          Vector3f click3d = main.getCam().getWorldCoordinates(new Vector2f(click2d.x, click2d.y), 0f).clone();
-          Vector3f aim = main.getCam().getWorldCoordinates(new Vector2f(click2d.x, click2d.y), 1f).subtractLocal(click3d).normalizeLocal();
-          Ray ray = new Ray(click3d, aim);
-          main.getRootNode().collideWith(ray, results);
-//          for (int i = 0; i < results.size(); i++) {
-//            float dist = results.getCollision(i).getDistance();
-//            Vector3f pt = results.getCollision(i).getContactPoint();
-//            String target = results.getCollision(i).getGeometry().getName();
-//            System.out.println("Selection #" + i + ": " + target + " at " + pt + ", " + dist + " WU away.");
-//          }
-//          if(results.size()>0&&results.getCollision(0).getGeometry().getName()=="Teapot-geom-0"){
-//        	  int collision=0;
-//        	  if(results.getCollision(0).getGeometry().getName()=="Teapot-geom-0")
-//        		  collision=2;
+		 CollisionResults results=getCollisions();
           	if(results.size()>0){
-          	Vector3f point = results.getCollision(0).getContactPoint();
-          	legoObject pickedObject = getCollisionObject(results);
-          	if(pickedObject != null)
-        	System.out.println("Face: "+pickedObject.getPickedFace(point));
-          	this.main.addObject(pickedObject.calculateNeighborPlace(pickedObject.getPickedFace(point)));
-          	}
-        	 
+	          	Vector3f point = results.getCollision(0).getContactPoint();
+	          	legoObject pickedObject = getCollisionObject(results);
+	          	
+	          	System.out.println(pickedObject.getPickedFace(point)+",  " + point.toString()+",  rot: " + pickedObject.orientation);
+	          	this.main.addObject(pickedObject.calculateNeighborPlace(pickedObject.getPickedFace(point)));
+          	} 
      }
+	 
+	 
+	 /**
+	  * 
+	  * @param pickedFace
+	  * @param object
+	  */
+	 public void rotateElement(int axis){
+		 
+		 CollisionResults results=getCollisions();
+		 if(results.size()>0){
+	          	Vector3f point = results.getCollision(0).getContactPoint();
+	          	legoObject pickedObject = getCollisionObject(results);
+	          	if(pickedObject != null)
+	          		this.main.rotateObject(pickedObject.calculateRotation(axis), pickedObject);
+	          	System.out.println("rotation um: "+ pickedObject.orientation.toString());
+		 } 
+	 }
+	 
+	 private void markObject(boolean on){
+		 CollisionResults results=getCollisions();
+		 if(results.size()>0){
+	          	Vector3f point = results.getCollision(0).getContactPoint();
+	          	legoObject pickedObject = getCollisionObject(results);
+	          	if(pickedObject != null)
+	          		if(on)
+	          			pickedObject.setColor(ColorRGBA.Yellow);
+	          		else
+	          			pickedObject.setColor(ColorRGBA.Blue);
+		 } 
+		 
+	 }
+	 
 	 
 	 /**
 	  * 
@@ -125,9 +150,15 @@ public class EventHandler implements ActionListener, AnalogListener{
 	 
 	 public void onAction(String name, boolean keyPressed, float tpf) {
 		switchBottoms(name, keyPressed);
-		if (name.equals("LMouse")&&keyPressed)
+		if (name.equals("LMouse")&&!Ctrl)
+			markObject(keyPressed);
+		if (name.equals("RMouse")&&keyPressed)
+			rotateElement(0);
+		if (name.equals("RMouse")&&keyPressed&&Ctrl)
+			rotateElement(1);
+		if (name.equals("LMouse")&&keyPressed&&Ctrl)
 			addElement();
-		 
+		
 	 }
 	 
 	 /**

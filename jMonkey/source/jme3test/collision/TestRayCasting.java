@@ -81,7 +81,7 @@ public class TestRayCasting extends SimpleApplication {
 //        cam.setLocation(cam.getLocation().add(0,1,0));
 //        cam.lookAt(teapot.getWorldBound().getCenter(), Vector3f.UNIT_Y);
 
-        tracer = new RayTrace(rootNode, cam, 160, 128);
+        tracer = new RayTrace(rootNode, getCam(), 160, 128);
         tracer.show();
         tracer.update();
     }

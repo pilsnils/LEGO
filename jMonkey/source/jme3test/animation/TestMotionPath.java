@@ -69,7 +69,7 @@ public class TestMotionPath extends SimpleApplication {
     @Override
     public void simpleInitApp() {
         createScene();
-        cam.setLocation(new Vector3f(8.4399185f, 11.189463f, 14.267577f));
+        getCam().setLocation(new Vector3f(8.4399185f, 11.189463f, 14.267577f));
         path = new MotionPath();
         path.addWayPoint(new Vector3f(10, 3, 0));
         path.addWayPoint(new Vector3f(10, 3, 10));
@@ -100,12 +100,12 @@ public class TestMotionPath extends SimpleApplication {
                 } else {
                     wayPointsText.setText(control.getSpatial().getName() + " Reached way point " + wayPointIndex);
                 }
-                wayPointsText.setLocalTranslation((cam.getWidth() - wayPointsText.getLineWidth()) / 2, cam.getHeight(), 0);
+                wayPointsText.setLocalTranslation((getCam().getWidth() - wayPointsText.getLineWidth()) / 2, getCam().getHeight(), 0);
             }
         });
 
         flyCam.setEnabled(false);
-        ChaseCamera chaser = new ChaseCamera(cam, teapot);
+        ChaseCamera chaser = new ChaseCamera(getCam(), teapot);
 //        motionControl.setSpeed(-3f);
 //        motionControl.setLoopMode(LoopMode.Loop);
 //        path.setCycle(true);

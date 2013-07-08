@@ -91,8 +91,8 @@ public class TestSimpleWater extends SimpleApplication implements ActionListener
 
     private void initScene() {
         //init cam location
-        cam.setLocation(new Vector3f(0, 10, 10));
-        cam.lookAt(Vector3f.ZERO, Vector3f.UNIT_Y);
+        getCam().setLocation(new Vector3f(0, 10, 10));
+        getCam().lookAt(Vector3f.ZERO, Vector3f.UNIT_Y);
         //init scene
         sceneNode = new Node("Scene");
         mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");

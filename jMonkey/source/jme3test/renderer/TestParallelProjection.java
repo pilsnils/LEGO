@@ -61,9 +61,9 @@ public class TestParallelProjection  extends SimpleApplication implements Analog
         rootNode.attachChild(teaGeom);
 
         // Setup first view
-        cam.setParallelProjection(true);
-        float aspect = (float) cam.getWidth() / cam.getHeight();
-        cam.setFrustum(-1000, 1000, -aspect * frustumSize, aspect * frustumSize, frustumSize, -frustumSize);
+        getCam().setParallelProjection(true);
+        float aspect = (float) getCam().getWidth() / getCam().getHeight();
+        getCam().setFrustum(-1000, 1000, -aspect * frustumSize, aspect * frustumSize, frustumSize, -frustumSize);
 
         inputManager.addListener(this, "Size+", "Size-");
         inputManager.addMapping("Size+", new KeyTrigger(KeyInput.KEY_W));
@@ -77,7 +77,7 @@ public class TestParallelProjection  extends SimpleApplication implements Analog
         else
             frustumSize -= 0.3f * tpf;
 
-        float aspect = (float) cam.getWidth() / cam.getHeight();
-        cam.setFrustum(-1000, 1000, -aspect * frustumSize, aspect * frustumSize, frustumSize, -frustumSize);
+        float aspect = (float) getCam().getWidth() / getCam().getHeight();
+        getCam().setFrustum(-1000, 1000, -aspect * frustumSize, aspect * frustumSize, frustumSize, -frustumSize);
     }
 }

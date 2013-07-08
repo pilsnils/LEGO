@@ -151,8 +151,8 @@ public class TerrainTestModifyHeight extends SimpleApplication {
         ambLight.setColor(new ColorRGBA(1f, 1f, 0.8f, 0.2f));
         rootNode.addLight(ambLight);
 
-        cam.setLocation(new Vector3f(0, 256, 0));
-        cam.lookAtDirection(new Vector3f(0, -1f, 0).normalizeLocal(), Vector3f.UNIT_X);
+        getCam().setLocation(new Vector3f(0, 256, 0));
+        getCam().lookAtDirection(new Vector3f(0, -1f, 0).normalizeLocal(), Vector3f.UNIT_X);
     }
     
     public void loadHintText() {
@@ -259,8 +259,8 @@ public class TerrainTestModifyHeight extends SimpleApplication {
     }
 
     private Vector3f getWorldIntersection() {
-        Vector3f origin = cam.getWorldCoordinates(new Vector2f(settings.getWidth() / 2, settings.getHeight() / 2), 0.0f);
-        Vector3f direction = cam.getWorldCoordinates(new Vector2f(settings.getWidth() / 2, settings.getHeight() / 2), 0.3f);
+        Vector3f origin = getCam().getWorldCoordinates(new Vector2f(settings.getWidth() / 2, settings.getHeight() / 2), 0.0f);
+        Vector3f direction = getCam().getWorldCoordinates(new Vector2f(settings.getWidth() / 2, settings.getHeight() / 2), 0.3f);
         direction.subtractLocal(origin).normalizeLocal();
 
         Ray ray = new Ray(origin, direction);

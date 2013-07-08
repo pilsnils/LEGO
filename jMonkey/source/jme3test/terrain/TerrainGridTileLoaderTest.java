@@ -130,7 +130,7 @@ public class TerrainGridTileLoaderTest extends SimpleApplication {
             player3.setFallSpeed(10);
             player3.setGravity(10);
 
-            player3.setPhysicsLocation(new Vector3f(cam.getLocation().x, 256, cam.getLocation().z));
+            player3.setPhysicsLocation(new Vector3f(getCam().getLocation().x, 256, getCam().getLocation().z));
 
             bulletAppState.getPhysicsSpace().add(player3);
 
@@ -220,8 +220,8 @@ public class TerrainGridTileLoaderTest extends SimpleApplication {
 
     @Override
     public void simpleUpdate(final float tpf) {
-        Vector3f camDir = this.cam.getDirection().clone().multLocal(0.6f);
-        Vector3f camLeft = this.cam.getLeft().clone().multLocal(0.4f);
+        Vector3f camDir = this.getCam().getDirection().clone().multLocal(0.6f);
+        Vector3f camLeft = this.getCam().getLeft().clone().multLocal(0.4f);
         this.walkDirection.set(0, 0, 0);
         if (this.left) {
             this.walkDirection.addLocal(camLeft);
@@ -238,7 +238,7 @@ public class TerrainGridTileLoaderTest extends SimpleApplication {
 
         if (usePhysics) {
             this.player3.setWalkDirection(this.walkDirection);
-            this.cam.setLocation(this.player3.getPhysicsLocation());
+            this.getCam().setLocation(this.player3.getPhysicsLocation());
         }
     }
 }

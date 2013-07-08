@@ -198,7 +198,7 @@ public abstract class SimpleApplication extends Application {
             // simpleInit().  But at least it only gets initialized if
             // the app state is added.
             if (stateManager.getState(FlyCamAppState.class) != null) {
-                flyCam = new FlyByCamera(cam);
+                flyCam = new FlyByCamera(getCam());
                 flyCam.setMoveSpeed(1f); // odd to set this here but it did it before
                 stateManager.getState(FlyCamAppState.class).setCamera( flyCam ); 
             }

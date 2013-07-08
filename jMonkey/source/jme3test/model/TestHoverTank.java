@@ -60,7 +60,7 @@ public class TestHoverTank extends SimpleApplication {
         Node tank = (Node) assetManager.loadModel("Models/HoverTank/Tank2.mesh.xml");
 
         flyCam.setEnabled(false);
-        ChaseCamera chaseCam = new ChaseCamera(cam, tank, inputManager);
+        ChaseCamera chaseCam = new ChaseCamera(getCam(), tank, inputManager);
         chaseCam.setSmoothMotion(true);
         chaseCam.setMaxDistance(100000);
         chaseCam.setMinVerticalRotation(-FastMath.PI / 2);

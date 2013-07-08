@@ -70,9 +70,9 @@ public class TestShadow extends SimpleApplication {
     @Override
     public void simpleInitApp() {
         // put the camera in a bad position
-        cam.setLocation(new Vector3f(0.7804813f, 1.7502685f, -2.1556435f));
-        cam.setRotation(new Quaternion(0.1961598f, -0.7213164f, 0.2266092f, 0.6243975f));
-        cam.setFrustumFar(10);
+        getCam().setLocation(new Vector3f(0.7804813f, 1.7502685f, -2.1556435f));
+        getCam().setRotation(new Quaternion(0.1961598f, -0.7213164f, 0.2266092f, 0.6243975f));
+        getCam().setFrustumFar(10);
 
         Material mat = assetManager.loadMaterial("Common/Materials/WhiteColor.j3m");
         rootNode.setShadowMode(ShadowMode.Off);

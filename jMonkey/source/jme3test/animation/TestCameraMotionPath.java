@@ -71,8 +71,8 @@ public class TestCameraMotionPath extends SimpleApplication {
     @Override
     public void simpleInitApp() {
         createScene();
-        cam.setLocation(new Vector3f(8.4399185f, 11.189463f, 14.267577f));
-        camNode = new CameraNode("Motion cam", cam);
+        getCam().setLocation(new Vector3f(8.4399185f, 11.189463f, 14.267577f));
+        camNode = new CameraNode("Motion cam", getCam());
         camNode.setControlDir(ControlDirection.SpatialToCamera);
         camNode.setEnabled(false);
         path = new MotionPath();
@@ -106,12 +106,12 @@ public class TestCameraMotionPath extends SimpleApplication {
                 } else {
                     wayPointsText.setText(control.getSpatial().getName() + " Reached way point " + wayPointIndex);
                 }
-                wayPointsText.setLocalTranslation((cam.getWidth() - wayPointsText.getLineWidth()) / 2, cam.getHeight(), 0);
+                wayPointsText.setLocalTranslation((getCam().getWidth() - wayPointsText.getLineWidth()) / 2, getCam().getHeight(), 0);
             }
         });
 
         flyCam.setEnabled(false);
-        chaser = new ChaseCamera(cam, teapot);
+        chaser = new ChaseCamera(getCam(), teapot);
         chaser.registerWithInput(inputManager);
         chaser.setSmoothMotion(true);
         chaser.setMaxDistance(50);

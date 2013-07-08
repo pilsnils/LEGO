@@ -97,9 +97,9 @@ public class TestBrickWall extends SimpleApplication {
         initWall();
         initFloor();
         initCrossHairs();
-        this.cam.setLocation(new Vector3f(0, 6f, 6f));
-        cam.lookAt(Vector3f.ZERO, new Vector3f(0, 1, 0));
-        cam.setFrustumFar(15);
+        this.getCam().setLocation(new Vector3f(0, 6f, 6f));
+        getCam().lookAt(Vector3f.ZERO, new Vector3f(0, 1, 0));
+        getCam().setFrustumFar(15);
         inputManager.addMapping("shoot", new MouseButtonTrigger(MouseInput.BUTTON_LEFT));
         inputManager.addListener(actionListener, "shoot");
         inputManager.addMapping("gc", new KeyTrigger(KeyInput.KEY_X));
@@ -121,12 +121,12 @@ public class TestBrickWall extends SimpleApplication {
                 Geometry bulletg = new Geometry("bullet", bullet);
                 bulletg.setMaterial(mat2);
                 bulletg.setShadowMode(ShadowMode.CastAndReceive);
-                bulletg.setLocalTranslation(cam.getLocation());
+                bulletg.setLocalTranslation(getCam().getLocation());
                 
                 SphereCollisionShape bulletCollisionShape = new SphereCollisionShape(0.4f);
                 RigidBodyControl bulletNode = new BombControl(assetManager, bulletCollisionShape, 1);
 //                RigidBodyControl bulletNode = new RigidBodyControl(bulletCollisionShape, 1);
-                bulletNode.setLinearVelocity(cam.getDirection().mult(25));
+                bulletNode.setLinearVelocity(getCam().getDirection().mult(25));
                 bulletg.addControl(bulletNode);
                 rootNode.attachChild(bulletg);
                 getPhysicsSpace().add(bulletNode);

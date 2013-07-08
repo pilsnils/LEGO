@@ -143,7 +143,7 @@ public class TestBatchNode extends SimpleApplication {
         updateBoindPoints(points);
         frustum.update(points);
         time += tpf;
-        dl.setDirection(cam.getDirection());
+        dl.setDirection(getCam().getDirection());
         cube2.setLocalTranslation(FastMath.sin(-time) * 3, FastMath.cos(time) * 3, 0);
         cube2.setLocalRotation(new Quaternion().fromAngleAxis(time, Vector3f.UNIT_Z));
         cube2.setLocalScale(Math.max(FastMath.sin(time), 0.5f));

@@ -133,9 +133,9 @@ public class TestBrickTower extends SimpleApplication {
         initTower();
         initFloor();
         initCrossHairs();
-        this.cam.setLocation(new Vector3f(0, 25f, 8f));
-        cam.lookAt(Vector3f.ZERO, new Vector3f(0, 1, 0));
-        cam.setFrustumFar(80);
+        this.getCam().setLocation(new Vector3f(0, 25f, 8f));
+        getCam().lookAt(Vector3f.ZERO, new Vector3f(0, 1, 0));
+        getCam().setFrustumFar(80);
         inputManager.addMapping("shoot", new MouseButtonTrigger(MouseInput.BUTTON_LEFT));
         inputManager.addListener(actionListener, "shoot");
         rootNode.setShadowMode(ShadowMode.Off);
@@ -158,10 +158,10 @@ public class TestBrickTower extends SimpleApplication {
                 Geometry bulletg = new Geometry("bullet", bullet);
                 bulletg.setMaterial(mat2);
                 bulletg.setShadowMode(ShadowMode.CastAndReceive);
-                bulletg.setLocalTranslation(cam.getLocation());
+                bulletg.setLocalTranslation(getCam().getLocation());
                 RigidBodyControl bulletNode = new BombControl(assetManager, bulletCollisionShape, 1);
 //                RigidBodyControl bulletNode = new RigidBodyControl(bulletCollisionShape, 1);
-                bulletNode.setLinearVelocity(cam.getDirection().mult(25));
+                bulletNode.setLinearVelocity(getCam().getDirection().mult(25));
                 bulletg.addControl(bulletNode);
                 rootNode.attachChild(bulletg);
                 getPhysicsSpace().add(bulletNode);

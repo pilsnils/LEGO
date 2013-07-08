@@ -210,15 +210,15 @@ public class HelloTerrainCollision extends SimpleApplication
    */
   @Override
   public void simpleUpdate(float tpf) {
-    Vector3f camDir = cam.getDirection().clone().multLocal(0.6f);
-    Vector3f camLeft = cam.getLeft().clone().multLocal(0.4f);
+    Vector3f camDir = getCam().getDirection().clone().multLocal(0.6f);
+    Vector3f camLeft = getCam().getLeft().clone().multLocal(0.4f);
     walkDirection.set(0, 0, 0);
     if (left)  { walkDirection.addLocal(camLeft); }
     if (right) { walkDirection.addLocal(camLeft.negate()); }
     if (up)    { walkDirection.addLocal(camDir); }
     if (down)  { walkDirection.addLocal(camDir.negate()); }
     player.setWalkDirection(walkDirection);
-    cam.setLocation(player.getPhysicsLocation());
+    getCam().setLocation(player.getPhysicsLocation());
   }
 }
 

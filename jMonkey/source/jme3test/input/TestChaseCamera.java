@@ -75,7 +75,7 @@ public class TestChaseCamera extends SimpleApplication implements AnalogListener
     flyCam.setEnabled(false);
 
     // Enable a chase cam
-    chaseCam = new ChaseCamera(cam, teaGeom, inputManager);
+    chaseCam = new ChaseCamera(getCam(), teaGeom, inputManager);
 
     //Uncomment this to invert the camera's vertical rotation Axis 
     //chaseCam.setInvertVerticalAxis(true);

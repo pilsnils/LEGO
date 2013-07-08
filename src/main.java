@@ -8,6 +8,8 @@ import org.w3c.dom.css.RGBColor;
 import guiObjects.legoObject;
 import guiObjects.legoHexagon;
 
+import LEGO.legoAssemblage;
+
 import com.jme3.app.SimpleApplication;
 import com.jme3.collision.CollisionResults;
 import com.jme3.font.BitmapText;
@@ -36,6 +38,7 @@ public class main extends SimpleApplication {
 	Geometry cameraFixpoint;
 	ChaseCamera chaseCam;
 	EventHandler eventHandler;
+	legoAssemblage assemblage;
 	
     public static void main(String[] args){
         main app = new main();
@@ -47,13 +50,11 @@ public class main extends SimpleApplication {
     public void simpleInitApp() {
     	viewPort.setBackgroundColor(ColorRGBA.White);
     	this.objects=new LinkedList<legoObject>();
-    	
-    	addObject(new Vector3f(0,0,0));
-    	
-    	
-    	addObject(new Vector3f(2,4,10));
+    	this.assemblage = new legoAssemblage(this.objects);
+    	addObject(new Vector3f(0,0,2));
     	initCam();
         this.eventHandler=new EventHandler(this, this.inputManager);
+       
     }
 
     
@@ -78,71 +79,22 @@ public class main extends SimpleApplication {
      * 
      * @param position
      */
-    void addObject(Vector3f position){
+    public void addObject(Vector3f position){
     	int id=this.objects.size();
     	
     	this.objects.add(new legoHexagon(id,  assetManager, position.clone()));
     	rootNode.attachChild(this.objects.get(id).getGeometry());
     }
     
+    /**
+     * 
+     * @param rotation
+     * @param object
+     */
+    public void rotateObject(Vector3f rotation, legoObject object){
+    		object.rotateObject(rotation);
+    }
  
-//    private void initKeys() {
-//    	inputManager.addMapping("moveUp", new KeyTrigger(keyInput.KEY_UP), new KeyTrigger(keyInput.KEY_Q));
-//        inputManager.addMapping("moveDown", new KeyTrigger(keyInput.KEY_DOWN), new KeyTrigger(keyInput.KEY_E));
-//    	inputManager.addMapping("moveForward", new KeyTrigger(keyInput.KEY_UP), new KeyTrigger(keyInput.KEY_W));
-//        inputManager.addMapping("moveBackward", new KeyTrigger(keyInput.KEY_DOWN), new KeyTrigger(keyInput.KEY_S));
-//        inputManager.addMapping("moveRight", new KeyTrigger(keyInput.KEY_RIGHT), new KeyTrigger(keyInput.KEY_D));
-//        inputManager.addMapping("moveLeft", new KeyTrigger(keyInput.KEY_LEFT), new KeyTrigger(keyInput.KEY_A));
-//    	inputManager.addMapping("Rotate", new KeyTrigger(KeyInput.KEY_SPACE));
-//        inputManager.addMapping("LMouse", new MouseButtonTrigger(MouseInput.BUTTON_LEFT));
-//        inputManager.addListener(analogListener, new String[]{"LMouse", "Rotate", 
-//        		"moveForward", "moveBackward", "moveRight", "moveLeft", "moveUp", "moveDown"});
-//      }
-    
-    
-//    private AnalogListener analogListener = new AnalogListener() {
-//        public void onAnalog(String name, float value, float tpf) {
-//        		float hAngle=chaseCam.getHorizontalRotation();
-//        		float vAngle=chaseCam.getVerticalRotation();
-//        		
-//        		Vector3f dir = new Vector3f((float) (5*tpf*Math.cos(hAngle)),(float) (5*tpf *Math.sin(hAngle)),(float) (5*tpf *Math.sin(vAngle)));
-//
-//        		if (name.equals("moveForward")) {
-//        			float angle=chaseCam.getHorizontalRotation();
-//        		
-//        			cameraFixpoint.move(new Vector3f(-dir.x,-dir.z,-dir.y));
-//        			}
-//        	    if (name.equals("moveBackward")) {
-//        	    	cameraFixpoint.move(new Vector3f(dir.x,dir.z,dir.y));
-//            	    }
-//        	    if (name.equals("moveRight")) {
-//        	    	cameraFixpoint.move( dir.y,0,-dir.x);
-//            	    }
-//        	    if (name.equals("moveLeft")) {
-//        	    	cameraFixpoint.move( -dir.y,0,dir.x);
-//            	    }
-//        	    if (name.equals("moveUp")) {
-//        	    	cameraFixpoint.move(0,5 * tpf,  0);
-//        	    }
-//        	    if (name.equals("moveDown")) {
-//        	    	cameraFixpoint.move(0,-5 * tpf, 0);
-//        	    }
-//        	    
-//	            if (name.equals("LMouse")) {
-//	            	
-//	               eventHandler.pickEvent();
-//	            }
-//	            
-//	            if (name.equals("Rotate")) {
-//	            	
-////            	objects.get(0).getGeometry().rotate(value*speed,0, 0);
-//            	 System.out.println(objects.get(0).getPosition().toString());
-//            	 System.out.println(objects.get(1).getPosition().toString());
-////            	 Vector3f localCoord = .subtract(objects.get(1).getPosition());
-//            	 
-//	            }
-//        }
-//      };
       
       /**
        * 

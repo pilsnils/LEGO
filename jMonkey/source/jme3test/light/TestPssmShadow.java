@@ -146,8 +146,8 @@ public class TestPssmShadow extends SimpleApplication implements ActionListener 
     @Override
     public void simpleInitApp() {
         // put the camera in a bad position
-        cam.setLocation(new Vector3f(65.25412f, 44.38738f, 9.087874f));
-        cam.setRotation(new Quaternion(0.078139365f, 0.050241485f, -0.003942559f, 0.9956679f));
+        getCam().setLocation(new Vector3f(65.25412f, 44.38738f, 9.087874f));
+        getCam().setRotation(new Quaternion(0.078139365f, 0.050241485f, -0.003942559f, 0.9956679f));
 
         flyCam.setMoveSpeed(100);
 
@@ -225,7 +225,7 @@ public class TestPssmShadow extends SimpleApplication implements ActionListener 
 
     private void print(String str) {
         infoText.setText(str);
-        infoText.setLocalTranslation(cam.getWidth() * 0.5f - infoText.getLineWidth() * 0.5f, infoText.getLineHeight(), 0);
+        infoText.setLocalTranslation(getCam().getWidth() * 0.5f - infoText.getLineWidth() * 0.5f, infoText.getLineHeight(), 0);
         guiNode.attachChild(infoText);
         infoText.removeControl(ctrl);
         infoText.addControl(ctrl);

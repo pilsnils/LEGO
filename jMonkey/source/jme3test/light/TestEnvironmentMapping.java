@@ -44,7 +44,7 @@ public class TestEnvironmentMapping extends SimpleApplication {
 
         flyCam.setEnabled(false);
 
-        ChaseCamera chaseCam = new ChaseCamera(cam, inputManager);
+        ChaseCamera chaseCam = new ChaseCamera(getCam(), inputManager);
         chaseCam.setLookAtOffset(new Vector3f(0,0.5f,-1.0f));
         buggy.addControl(chaseCam);
         rootNode.attachChild(buggy);

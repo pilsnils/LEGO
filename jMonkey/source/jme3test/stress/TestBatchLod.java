@@ -82,8 +82,8 @@ public class TestBatchLod extends SimpleApplication {
         GeometryBatchFactory.optimize(rootNode, true);
         LodControl control = new LodControl();
         rootNode.getChild(0).addControl(control);
-        cam.setLocation(new Vector3f(-1.0748308f, 1.35778f, -1.5380064f));
-        cam.setRotation(new Quaternion(0.18343268f, 0.34531063f, -0.069015436f, 0.9177962f));
+        getCam().setLocation(new Vector3f(-1.0748308f, 1.35778f, -1.5380064f));
+        getCam().setRotation(new Quaternion(0.18343268f, 0.34531063f, -0.069015436f, 0.9177962f));
 
     }
 }

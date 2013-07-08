@@ -80,8 +80,8 @@ public class TestDebugShapes extends SimpleApplication {
 
     @Override
     public void simpleInitApp() {
-        cam.setLocation(new Vector3f(2,1.5f,2));
-        cam.lookAt(Vector3f.ZERO, Vector3f.UNIT_Y);
+        getCam().setLocation(new Vector3f(2,1.5f,2));
+        getCam().lookAt(Vector3f.ZERO, Vector3f.UNIT_Y);
 
         putArrow(Vector3f.ZERO, Vector3f.UNIT_X, ColorRGBA.Red);
         putArrow(Vector3f.ZERO, Vector3f.UNIT_Y, ColorRGBA.Green);

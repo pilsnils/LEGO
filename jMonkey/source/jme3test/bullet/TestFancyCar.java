@@ -93,7 +93,7 @@ public class TestFancyCar extends SimpleApplication implements ActionListener {
             bsr.setDirection(new Vector3f(-0.5f, -0.3f, -0.3f).normalizeLocal());
             viewPort.addProcessor(bsr);
         }
-        cam.setFrustumFar(150f);
+        getCam().setFrustumFar(150f);
         flyCam.setMoveSpeed(10);
 
         setupKeys();
@@ -260,6 +260,6 @@ public class TestFancyCar extends SimpleApplication implements ActionListener {
 
     @Override
     public void simpleUpdate(float tpf) {
-        cam.lookAt(carNode.getWorldTranslation(), Vector3f.UNIT_Y);
+        getCam().lookAt(carNode.getWorldTranslation(), Vector3f.UNIT_Y);
     }
 }

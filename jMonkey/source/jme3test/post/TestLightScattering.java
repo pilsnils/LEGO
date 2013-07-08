@@ -59,8 +59,8 @@ public class TestLightScattering extends SimpleApplication {
     @Override
     public void simpleInitApp() {
         // put the camera in a bad position
-        cam.setLocation(new Vector3f(55.35316f, -0.27061665f, 27.092093f));
-        cam.setRotation(new Quaternion(0.010414706f, 0.9874893f, 0.13880467f, -0.07409228f));
+        getCam().setLocation(new Vector3f(55.35316f, -0.27061665f, 27.092093f));
+        getCam().setRotation(new Quaternion(0.010414706f, 0.9874893f, 0.13880467f, -0.07409228f));
 //        cam.setDirection(new Vector3f(0,-0.5f,1.0f));
 //        cam.setLocation(new Vector3f(0, 300, -500));
         //cam.setFrustumFar(1000);
